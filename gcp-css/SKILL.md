@@ -17,15 +17,19 @@ If it is not there, copy it into the project, import it once, and write a short 
 
 One stylesheet, no JavaScript, plain HTML. You write native form elements in a fixed order inside a few wrapper `div`s and the CSS does the rest.
 
-- Stylesheet: `https://stopsopa.github.io/gcp-css/gcp-css/gcp-css.css`
+- Stylesheet: `gcp-css.css`, in the same directory as this `SKILL.md`. Copy it from there into the project (copy, do not move or edit the skill's own file, and do not link to a remote URL). See "copying assets from this skill to the project" above.
 - Live demo with copyable HTML: `https://stopsopa.github.io/gcp-css/`
 - Source of truth: the comment block at the top of `gcp-css.css` (bundled next to this file). If this file and that comment disagree, the CSS file wins, and this file should be corrected.
 
 ## 1. Setup
 
+Copy `gcp-css.css` from this skill's directory (next to this `SKILL.md`) into the project, in the place where the project keeps its stylesheets, then load that local copy. Do not load the stylesheet from a remote URL.
+
 ```html
-<link rel="stylesheet" href="https://stopsopa.github.io/gcp-css/gcp-css/gcp-css.css" />
+<link rel="stylesheet" href="/path/in/project/gcp-css.css" />
 ```
+
+In a project with a bundler or framework, import the copy the way that project imports CSS (for example `import "./gcp-css.css";`).
 
 The file does not set a font. Controls use `font-family: inherit`, so set the font on the page. The demo uses Google Sans.
 
@@ -207,7 +211,8 @@ The file uses CSS nesting, `:has()` and `@scope`. It needs Chrome 118+, Safari 1
 ## 9. Complete example
 
 ```html
-<link rel="stylesheet" href="https://stopsopa.github.io/gcp-css/gcp-css/gcp-css.css" />
+<!-- local copy of gcp-css.css, copied from the skill directory -->
+<link rel="stylesheet" href="/path/in/project/gcp-css.css" />
 
 <form class="gcp-css">
   <h2>Project</h2>
