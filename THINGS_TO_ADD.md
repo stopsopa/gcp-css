@@ -1,6 +1,6 @@
 # Things to add
 
-Ideas for extending `floating-label-pattern.css` and the demo `index.html`. Nothing here is implemented.
+Ideas for extending `gcp-css.css` and the demo `index.html`. Nothing here is implemented.
 Section names like `FORM`, `SOURCE`, `CSS-FIELD` are defined in `index.md`.
 
 Every idea was filtered through the library's rules: one CSS file, no JavaScript, native HTML elements, as few wrappers as possible.
@@ -131,7 +131,7 @@ What I expect, to be confirmed:
 | `select multiple`, `select size="5"`              | A list, not a dropdown. The arrow must be hidden and the label always floated.                                                 |
 | `input list="..."` with `<datalist>`              | Native autocomplete. Should work as a text field. The browser adds its own arrow in some browsers.                             |
 
-**Idea.** Add a second demo block with one field of each type, fix what is broken, and list the supported types in `CSS-DOC` and `skill.md`.
+**Idea.** Add a second demo block with one field of each type, fix what is broken, and list the supported types in `CSS-DOC` and `gcp-css/SKILL.md`.
 
 **Fit:** full. Mostly testing.
 
@@ -370,7 +370,7 @@ The repository already has Playwright. Two cheap tests:
 
 ### E4. A second skill file or section for page building
 
-`skill.md` covers forms. Once layout, table and callout exist (A1, A3, B1), it should gain a section on composing a whole page, with one complete example, since that is what an AI assistant will be asked to produce.
+`gcp-css/SKILL.md` covers forms. Once layout, table and callout exist (A1, A3, B1), it should gain a section on composing a whole page, with one complete example, since that is what an AI assistant will be asked to produce.
 
 ---
 

@@ -6,20 +6,20 @@ Read this before changing anything in this directory. It gives every part of the
 
 | File                         | Role                                                                                                                                                                                                                                   |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `floating-label-pattern.css` | **The library.** One CSS file that makes plain HTML forms look like Google Cloud Platform console forms. This is the only file other projects import.                                                                                  |
+| `gcp-css/gcp-css.css`        | **The library.** One CSS file that makes plain HTML forms look like Google Cloud Platform console forms. This is the only file other projects import.                                                                                  |
 | `index.html`                 | **Working demo and workshop** for the library. Every component in every state, with controls to switch states, and the HTML of the form printed live next to it (it follows every change of the form). New ideas are tried here first. |
-| `skill.md`                   | Instructions for an AI assistant in **another project** on how to write HTML for the library.                                                                                                                                          |
+| `gcp-css/SKILL.md`           | Instructions for an AI assistant in **another project** on how to write HTML for the library.                                                                                                                                          |
 | `SUGGESTED_CHANGES.md`       | Review log: what was found, what was decided, what is still open (`DONE` / `OPEN` / `NOT A CONCERN`).                                                                                                                                  |
 | `THINGS_TO_ADD.md`           | Ideas for new components and demo features. Nothing in it is implemented.                                                                                                                                                              |
 | `index.ts`                   | **All JavaScript of the demo page**, written in TypeScript. This is the file to edit.                                                                                                                                                  |
 | `index.js`                   | Generated from `index.ts`. Loaded by `index.html` as a native browser ES module. Never edit by hand. Git-ignored.                                                                                                                      |
 | `index.md`                   | This file: how to work on the demo and the library **here**.                                                                                                                                                                           |
 
-`skill.md` is for using the library. `index.md` is for developing it.
+`gcp-css/SKILL.md` is for using the library. `index.md` is for developing it.
 
 ## How to view it
 
-Start the dev server from the repository root (`make start`) and open `/pages/html/float-label-pattern/index.html` on the port from `NODE_API_PORT` in `.env`.
+Start the dev server from the repository root (`make start`) and open `/index.html` on the port from `NODE_API_PORT` in `.env`.
 The CSS and the HTML are served as they are, no build step. The only generated file is `index.js` (see "Script: `index.ts` → `index.js`" below).
 
 The page is part of the stopsopa.github.io site, so it loads `/js/github.js` at the end of `<body>` (site header ribbons, ACE editor, url placeholders). The `<body>` attributes `no-anchor-links no-main-css` switch off the site's heading anchors and the site's `main.css`, so the demo shows the library's styles only.
@@ -169,7 +169,7 @@ Consequences to keep in mind:
 ```
 
 - **Edit `index.ts`, not `index.js`.** `index.js` is produced from it by the repository's transpiler and is overwritten every time.
-- Transpilation is done by `transpile.sh` using `transpile.ignore` in the repository root. That file ignores everything under `pages/` by default; the block marked `float-label-pattern index.ts` un-ignores exactly this one file. The dev server (`make start`) runs it in watch mode; by hand it is `/bin/bash transpile.sh transpile.ignore`.
+- Transpilation is done by `transpile.sh` using `transpile.ignore` in the repository root. That file ignores everything under `pages/` by default; the block marked for this `index.ts` un-ignores exactly this one file. The dev server (`make start`) runs it in watch mode; by hand it is `/bin/bash transpile.sh transpile.ignore`.
 - The transpiler type-checks **all** un-ignored `.ts` files of the repository together. If there is a type error anywhere, no `.js` is written, silently. When `index.js` does not change after an edit, run the command by hand and read the output.
 - `index.ts` has `export {};` at the top. It makes the file a module for TypeScript. Without it the top-level functions (`render()`...) collide with functions of the same name in other `.ts` files of the repository and the type-check fails. Do not remove it.
 - It is a native ES module: it runs after the HTML is parsed (so every element already exists), in strict mode, and nothing in it is global. `setError()` or `renderSource()` cannot be called from the browser console or from an inline `onclick`.
@@ -202,13 +202,13 @@ Demo-only CSS. None of it belongs to the library.
 | `P-CONTROLS` | `.section-heading`, `.range-input`, `.controls`, `.error-toggle`        | The `CONTROLS` column.                      |
 | `P-SOURCE`   | `.source-panel`, `.source-toolbar`, `.source-hint`, `#source`, `.src-*` | The `SOURCE` panel and the hover highlight. |
 
-## Section names: `floating-label-pattern.css`
+## Section names: `gcp-css.css`
 
 The file has comment banners with the same order.
 
 | Name           | Banner / selector in the file                                        | What it styles                                                                                      |
 | -------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `CSS-DOC`      | comment block at the top                                             | The markup contract. Source of truth for `skill.md`.                                                |
+| `CSS-DOC`      | comment block at the top                                             | The markup contract. Source of truth for `gcp-css/SKILL.md`.                                                |
 | `CSS-VARS`     | `:root { --gcp-css-* }`                                              | Colours, font sizes, field gap, transition.                                                         |
 | `CSS-SCOPE`    | `@scope (.gcp-css) to (.no-gcp-css) { :scope, :scope * { ... } }`    | The on/off switch. Everything below is nested inside it.                                            |
 | `CSS-TEXT`     | banner `TEXT`: `&:is(a)`, `&:is(h2)`, `&:is(p)`                      | Links with underline and `link-icon`, headings, paragraphs.                                         |
@@ -235,15 +235,15 @@ How `CSS-SCOPE` reads: inside it, `&` means "the element with class `gcp-css`, o
 
 ## Rules for changing things
 
-1. **Library or demo?** If the change should reach other projects, it goes into `floating-label-pattern.css`. If it only concerns how the demo page presents things, it goes into the `<style>` of `index.html` or into `index.ts`. Do not put demo layout into the library, and do not fix a library problem with page styles.
+1. **Library or demo?** If the change should reach other projects, it goes into `gcp-css.css`. If it only concerns how the demo page presents things, it goes into the `<style>` of `index.html` or into `index.ts`. Do not put demo layout into the library, and do not fix a library problem with page styles.
 2. **Keep the library's goals:** one CSS file, no JavaScript, native HTML elements, as few wrapper elements as possible, flat markup.
 3. **When the markup contract changes** (element order, class names, states, variables, browser floor), update in the same change:
    - `CSS-DOC` at the top of the CSS file,
    - the markup in `FORM` (so `SOURCE` shows the new way),
-   - `skill.md`,
+   - `gcp-css/SKILL.md`,
    - this file, if a section name, id or script is affected.
 4. **Record review decisions** in `SUGGESTED_CHANGES.md` with a status. Explain a problem there in plain terms before proposing a fix.
-5. **New component:** add it to `FORM` with a wrapper `id`, add its rules as a new banner section in the CSS, give both a name in this file, describe the markup in `CSS-DOC` and `skill.md`.
+5. **New component:** add it to `FORM` with a wrapper `id`, add its rules as a new banner section in the CSS, give both a name in this file, describe the markup in `CSS-DOC` and `gcp-css/SKILL.md`.
 6. **Do not edit `SOURCE-CODE` by hand** and do not paste HTML into it. Change `FORM` or `S-RENDER`.
 7. **Check in a browser** after a change: default state, `C-ERRORS`, `C-DISABLED`, `C-HELPER`, keyboard focus on each kind of control, a narrow `C-WIDTH`, and hover over `FORM` to confirm `SOURCE` still highlights, and change a value of each kind of control to confirm `SOURCE` follows.
 8. **Format** with the repository's Prettier (`make style_fix`, or `npx prettier --write` on the changed files).

@@ -7,7 +7,7 @@
  * Loaded as native browser ES module: <script type="module" src="index.js"></script>
  * Module scripts run after the whole html is parsed, so all elements queried below already exist.
  *
- * None of this is needed to use floating-label-pattern.css - the library has no javascript.
+ * None of this is needed to use gcp-css.css - the library has no javascript.
  */
 
 // Makes this file a module for typescript. Without any import/export it is treated as a global script

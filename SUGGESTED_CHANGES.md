@@ -1,4 +1,4 @@
-# Suggested changes for `floating-label-pattern.css`
+# Suggested changes for `gcp-css.css`
 
 Status after the third round. Checked in Chrome on the local dev server. Not checked in Firefox or Safari.
 
@@ -6,7 +6,7 @@ Legend: **DONE** = implemented, **OPEN** = waiting for your decision, **NOT A CO
 
 Related files:
 
-- `skill.md`: instructions for an AI assistant on how to use this library. Keep it in sync with the CSS.
+- `gcp-css/SKILL.md`: instructions for an AI assistant on how to use this library. Keep it in sync with the CSS.
 - `index.html`: demo. The panel on the right prints the HTML of the form straight from the page.
 
 ## Open items (need your decision)
