@@ -196,7 +196,7 @@ function render(node: Node, indent: string, target: HTMLElement) {
       ...lines
         .slice(1)
         .filter((l) => l.trim())
-        .map((l) => l.match(/^ */)![0].length)
+        .map((l) => l.match(/^ */)![0].length),
     );
     const body = lines
       .map((l, i) => (i === 0 ? l : l.trim() ? indent + l.slice(isFinite(strip) ? strip - 2 : 0) : ""))

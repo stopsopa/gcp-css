@@ -1,5 +1,3 @@
-
-
 ```sh
 npm install -g skills
 npx skills add stopsopa/gcp-css

@@ -1,0 +1,12 @@
+{
+  "name": "gcp-css",
+  "private": true,
+  "scripts": {
+    "style:check": "prettier --config prettier.config.cjs --check .",
+    "style:fix": "prettier --config prettier.config.cjs --write .",
+    "style:list": "prettier --config prettier.config.cjs --list-different ."
+  },
+  "devDependencies": {
+    "prettier": "3.10.1"
+  }
+}

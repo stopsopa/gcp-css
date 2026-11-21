@@ -1,0 +1,5 @@
+node_modules/
+package-lock.json
+
+# generated from index.ts by the transpiler, overwritten on every run
+index.js

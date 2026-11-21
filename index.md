@@ -4,16 +4,16 @@ Read this before changing anything in this directory. It gives every part of the
 
 ## What this directory is
 
-| File                         | Role                                                                                                                                                                                                                                   |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `gcp-css/gcp-css.css`        | **The library.** One CSS file that makes plain HTML forms look like Google Cloud Platform console forms. This is the only file other projects import.                                                                                  |
-| `index.html`                 | **Working demo and workshop** for the library. Every component in every state, with controls to switch states, and the HTML of the form printed live next to it (it follows every change of the form). New ideas are tried here first. |
-| `gcp-css/SKILL.md`           | Instructions for an AI assistant in **another project** on how to write HTML for the library.                                                                                                                                          |
-| `SUGGESTED_CHANGES.md`       | Review log: what was found, what was decided, what is still open (`DONE` / `OPEN` / `NOT A CONCERN`).                                                                                                                                  |
-| `THINGS_TO_ADD.md`           | Ideas for new components and demo features. Nothing in it is implemented.                                                                                                                                                              |
-| `index.ts`                   | **All JavaScript of the demo page**, written in TypeScript. This is the file to edit.                                                                                                                                                  |
-| `index.js`                   | Generated from `index.ts`. Loaded by `index.html` as a native browser ES module. Never edit by hand. Git-ignored.                                                                                                                      |
-| `index.md`                   | This file: how to work on the demo and the library **here**.                                                                                                                                                                           |
+| File                   | Role                                                                                                                                                                                                                                   |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `gcp-css/gcp-css.css`  | **The library.** One CSS file that makes plain HTML forms look like Google Cloud Platform console forms. This is the only file other projects import.                                                                                  |
+| `index.html`           | **Working demo and workshop** for the library. Every component in every state, with controls to switch states, and the HTML of the form printed live next to it (it follows every change of the form). New ideas are tried here first. |
+| `gcp-css/SKILL.md`     | Instructions for an AI assistant in **another project** on how to write HTML for the library.                                                                                                                                          |
+| `SUGGESTED_CHANGES.md` | Review log: what was found, what was decided, what is still open (`DONE` / `OPEN` / `NOT A CONCERN`).                                                                                                                                  |
+| `THINGS_TO_ADD.md`     | Ideas for new components and demo features. Nothing in it is implemented.                                                                                                                                                              |
+| `index.ts`             | **All JavaScript of the demo page**, written in TypeScript. This is the file to edit.                                                                                                                                                  |
+| `index.js`             | Generated from `index.ts`. Loaded by `index.html` as a native browser ES module. Never edit by hand. Git-ignored.                                                                                                                      |
+| `index.md`             | This file: how to work on the demo and the library **here**.                                                                                                                                                                           |
 
 `gcp-css/SKILL.md` is for using the library. `index.md` is for developing it.
 
@@ -208,7 +208,7 @@ The file has comment banners with the same order.
 
 | Name           | Banner / selector in the file                                        | What it styles                                                                                      |
 | -------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `CSS-DOC`      | comment block at the top                                             | The markup contract. Source of truth for `gcp-css/SKILL.md`.                                                |
+| `CSS-DOC`      | comment block at the top                                             | The markup contract. Source of truth for `gcp-css/SKILL.md`.                                        |
 | `CSS-VARS`     | `:root { --gcp-css-* }`                                              | Colours, font sizes, field gap, transition.                                                         |
 | `CSS-SCOPE`    | `@scope (.gcp-css) to (.no-gcp-css) { :scope, :scope * { ... } }`    | The on/off switch. Everything below is nested inside it.                                            |
 | `CSS-TEXT`     | banner `TEXT`: `&:is(a)`, `&:is(h2)`, `&:is(p)`                      | Links with underline and `link-icon`, headings, paragraphs.                                         |
